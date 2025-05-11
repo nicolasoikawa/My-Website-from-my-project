@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir Imagens e Textos</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 80px; /* Espaço para a faixa do cabeçalho */
+            background-color: white; /* Fundo branco */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilo da faixa branca no cabeçalho */
+        .faixa-branca {
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 15%;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 30px;
+            color: #333;
+        }
+
+        button {
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background-color: #F0F0F0;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #D0D0D0;
+        }
+
+        .conteudo {
+            display: none;
+            margin-top: 20px;
+            background-color: #A7C7E7; /* Azul claro */
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .conteudo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .conteudo p {
+            font-size: 20px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        #voltar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #F0F0F0;
+            border: none;
+            border-radius: 5px;
+            display: none;
+        }
+
+        #voltar:hover {
+            background-color: #D0D0D0;
+        }
+
+        /* Estilo do urso para a imagem */
+       .urso-imagem {
+            width: 75px;
+            height: 75px;
+            background-color: #EFEFEF;
+            margin: -200px 1800px;
+            border: 2px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .urso-imagem img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Faixa branca com o título -->
+    <div class="faixa-branca">
+        <h1>Alunos do Bem</h1>
+    </div>
+
+    <!-- Botões para exibir conteúdo -->
+    <button id="btn1" onclick="mostrarConteudo('conteudo1')" style="display: inline-block;">Sobre nós</button>
+    <button id="btn2" onclick="mostrarConteudo('conteudo2')" style="display: inline-block;">Objetivo do projeto</button>
+    <button id="btn3" onclick="mostrarConteudo('conteudo3')" style="display: inline-block;">Doações</button>
+
+    <!-- aqui tera o urso para imagem -->
+    <div class="urso-imagem">
+        <img src="urso.jpg" alt="Imagem de exemplo">
+    </div>
+
+    <!-- Conteúdo 1 -->
+    <div id="conteudo1" class="conteudo" style="display: none;">
+        <img src="https://imgs.search.brave.com/cwlmWMmOF8GEUV3ChL1v1unc9m6otTQ180wQdlA7bog/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtZ3JhdGlz/L2FwZXJ0by1kZS1t/YW8tZmlybWUtZW0t/c2F1ZGFjYW9fMTEz/OS0xMTEuanBnP3Nl/bXQ9YWlzX2h5YnJp/ZA" alt="Imagem 1">
+        <p>Ola! Somos alunos do joão de melo macedo, criamos esse projeto juntamente da sala toda, para saber sobre o projeto veja o proximo botão.</p>
+    </div>
+
+    <!-- Conteúdo 2 -->
+    <div id="conteudo2" class="conteudo" style="display: none;">
+        <img src="https://imgs.search.brave.com/oXHilmHYtJ2EFldceWTKTqMIPPBeX5ZE7ugritRM0rc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3RpL2ZvdG9z/LWdyYXRpcy90Mi8x/Njc0OTA2OS1qb3Zl/bS1ib25pdG8tc29y/cmluZG8tY29tLW9z/LWJyYWNvcy1jcnV6/YWRvcy1uby1mdW5k/by1icmFuY28tZm90/by5qcGc" alt="Imagem 2">
+        <p>O objetivo do nosso projeto é ajudar as pessoas que tiveram perdas materiais devido as enchentes, procuramos ajudar elas com roupas e alimentos. Obrigado pela sua atenção</p>
+    </div>
+
+    <!-- Conteúdo 3 -->
+    <div id="conteudo3" class="conteudo" style="display: none;">
+        <img src="https://imgs.search.brave.com/M4XvjZ-dKbMKZO3S9_DId8ipPkHsSu520nwMl2qwcus/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi8xLzEyL0Vu/dHJlZ2FfZGVfY2Vz/dGFzX2IlQzMlQTFz/aWNhc19kb19BbGlt/ZW50b19Tb2xpZCVD/MyVBMXJpby5fJTI4/NTA5OTk2NjI0NTkl/MjkuanBnLzY0MHB4/LUVudHJlZ2FfZGVf/Y2VzdGFzX2IlQzMl/QTFzaWNhc19kb19A/bGltZW50b19Tb2xp/ZCVDMyVBMXJpby5f/JTI4NTA5OTk2NjI0/NTklMjkuanBn" alt="Imagem 3">
+        <p>As doações que aceitamos são roupas e alimentos, caso queira doar contate ... ou então venha a escola joão de melo...</p>
+    </div>
+
+    <!-- Botão Voltar -->
+    <button id="voltar" onclick="voltar()" style="display: none;">Voltar</button>
+
+    <script>
+        function mostrarConteudo(conteudoId) {
+            // Esconde todos os botões
+            const botoes = document.querySelectorAll('button');
+            botoes.forEach(botao => botao.style.display = 'none');
+            
+            // Exibe o conteúdo correspondente ao botão clicado
+            const conteudo = document.getElementById(conteudoId);
+            conteudo.style.display = 'block';
+
+            // Exibe o botão "Voltar" no canto superior
+            const voltarBtn = document.getElementById('voltar');
+            voltarBtn.style.display = 'block';
+        }
+
+        function voltar() {
+            // Esconde o conteúdo atual
+            const conteudos = document.querySelectorAll('.conteudo');
+            conteudos.forEach(conteudo => conteudo.style.display = 'none');
+
+            // Exibe os botões novamente
+            const botoes = document.querySelectorAll('button');
+            botoes.forEach(botao => botao.style.display = 'inline-block');
+
+            // Esconde o botão "Voltar"
+            const voltarBtn = document.getElementById('voltar');
+            voltarBtn.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
