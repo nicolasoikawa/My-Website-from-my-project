@@ -1,175 +1,259 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exibir Imagens e Textos</title>
-    <style>
-        body {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 80px; /* Espaço para a faixa do cabeçalho */
-            background-color: white; /* Fundo branco */
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <title>Alunos do Bem</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        /* Estilo da faixa branca no cabeçalho */
-        .faixa-branca {
-            background-color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 15%;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
+    .topo {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      position: relative;
+      border-bottom: 10px solid #686868; /* Linha abaixo do cabeçalho */
+    }
 
-        h1 {
-            margin: 0;
-            font-size: 30px;
-            color: #333;
-        }
+    .topo img {
+      width: 115px;
+      height: 115px;
+      object-fit: cover;
+      margin-right: 5px;
+    }
 
-        button {
-            margin: 20px 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            border: none;
-            background-color: #F0F0F0;
-            transition: background-color 0.3s;
-        }
+    .topo h1 {
+      margin: 0;
+    }
 
-        button:hover {
-            background-color: #D0D0D0;
-        }
+    .conteudo {
+      margin-top: 0px;
+      background: linear-gradient(135deg, #d3eff7, #68edff, #87CEFA, #ffffff); 
+      height: 85vh;
+      padding: 20px;
+    }
 
-        .conteudo {
-            display: none;
-            margin-top: 20px;
-            background-color: #A7C7E7; /* Azul claro */
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    /* Estilo dos botões */
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      margin-left: 930px; 
+    }
 
-        .conteudo img {
-            max-width: 100%;
-            height: auto;
-        }
+    .btn {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #ffffff; /* Cinza claro */
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        .conteudo p {
-            font-size: 20px;
-            color: #333;
-            margin-top: 10px;
-        }
+    .btn:hover {
+      background-color: #A9A9A9; /* Cinza mais escuro no hover */
+    }
 
-        #voltar {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #F0F0F0;
-            border: none;
-            border-radius: 5px;
-            display: none;
-        }
+    /* Estilo do modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding-top: 60px;
+    }
 
-        #voltar:hover {
-            background-color: #D0D0D0;
-        }
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      border-radius: 10px;
+    }
 
-        /* Estilo do urso para a imagem */
-       .urso-imagem {
-            width: 75px;
-            height: 75px;
-            background-color: #EFEFEF;
-            margin: -200px 1800px;
-            border: 2px solid #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-        .urso-imagem img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-    </style>
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Estilo do seletor de linguagem */
+    .seletor-linguagem {
+      position: absolute;
+      top: 20px;
+      left: 1670px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Faixa branca com o título -->
-    <div class="faixa-branca">
-        <h1>Alunos do Bem</h1>
+  <div class="topo">
+    <img src="https://github.com/user-attachments/assets/37498be5-8bcc-4a43-9614-dffaf2074d10" alt="Imagem do projeto">
+    <h1>Alunos do Bem</h1>
+    <div class="buttons">
+      <button class="btn" id="btn-doacoes">Doações</button> <!-- Novo botão "Doações" -->
+      <button class="btn" id="btn-quem-somos">Quem Somos</button>
+      <button class="btn" id="btn-objetivo">Objetivo</button>
+      <button class="btn" id="btn-suporte">Suporte</button>
+    </div>
+    <div class="seletor-linguagem">
+      <label for="linguagens">Linguagem:</label>
+      <select id="linguagens">
+        <option>Português</option>
+        <option>Inglês</option>
+        <option>Espanhol</option>
+        <option>Francês</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="conteudo">
+    <!-- Modal Doações -->
+    <div id="modal-doacoes" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-doacoes">&times;</span>
+        <h2>Doações</h2>
+<p>As doações podem ser de diversos tipos, dependendo das necessidades da comunidade. Abaixo, apresentamos alguns exemplos de cada categoria de doação:</p>
+    <h3>Alimentos Não Perecíveis:</h3>
+    <ul>
+      <li>Arroz</li>
+      <li>Feijão</li>
+      <li>Macarrão</li>
+      <li>Cereal matinal</li>
+      <li>Enlatados (milho, ervilha, atum)</li>
+    </ul>
+
+    <h3>Roupas:</h3>
+    <ul>
+      <li>Roupas infantis</li>
+      <li>Roupas de cama e banho</li>
+      <li>Roupas de inverno (casacos, blusas de lã)</li>
+      <li>Calçados (sapatos, tênis, sandálias)</li>
+      <li>Roupas de adulto (camisetas, calças, vestidos)</li>
+    </ul>
+
+    <h3>Produtos de Higiene Pessoal:</h3>
+    <ul>
+      <li>Sabonetes</li>
+      <li>Shampoo e condicionador</li>
+      <li>Papel higiênico</li>
+      <li>Escovas de dentes e creme dental</li>
+      <li>Desodorantes</li>
+    </ul>
+      </div>
     </div>
 
-    <!-- Botões para exibir conteúdo -->
-    <button id="btn1" onclick="mostrarConteudo('conteudo1')" style="display: inline-block;">Sobre nós</button>
-    <button id="btn2" onclick="mostrarConteudo('conteudo2')" style="display: inline-block;">Objetivo do projeto</button>
-    <button id="btn3" onclick="mostrarConteudo('conteudo3')" style="display: inline-block;">Doações</button>
-
-    <!-- aqui tera o urso para imagem -->
-    <div class="urso-imagem">
-        <img src="urso.jpg" alt="Imagem de exemplo">
+    <!-- Modal Quem Somos -->
+    <div id="modal-quem-somos" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-quem-somos">&times;</span>
+        <h2>Quem Somos</h2>
+        <p>Somos do Terceiro Ano A (3°A) da escola João de Melo Macedo, nossa sala é composta por XX alunos e uma professora paet, criamos esse projeto chamado "Alunos do Bem" onde nosso foco é ajudar pessoas em situações de risco, pessoas necessitadas ou pessoas que perderam seus bens por conta de desastres naturais. Atualmente estudamos Desenvolvimento de Sistemas e esse site foi feito para ajudar no espalhamento do nosso projeto.</p>
+      </div>
     </div>
 
-    <!-- Conteúdo 1 -->
-    <div id="conteudo1" class="conteudo" style="display: none;">
-        <img src="https://imgs.search.brave.com/cwlmWMmOF8GEUV3ChL1v1unc9m6otTQ180wQdlA7bog/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtZ3JhdGlz/L2FwZXJ0by1kZS1t/YW8tZmlybWUtZW0t/c2F1ZGFjYW9fMTEz/OS0xMTEuanBnP3Nl/bXQ9YWlzX2h5YnJp/ZA" alt="Imagem 1">
-        <p>Ola! Somos alunos do joão de melo macedo, criamos esse projeto juntamente da sala toda, para saber sobre o projeto veja o proximo botão.</p>
+    <!-- Modal Objetivo -->
+    <div id="modal-objetivo" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-objetivo">&times;</span>
+        <h2>Objetivo</h2>
+        <p>Nosso objetivo é através do site ou de outras formas de compartilhamentos, arrecadarmos doações de alimentos NÃO perecíveis, doações de roupas ou itens de higiêne que serão distribuidas para pessoas necessitadas.</p>
+      </div>
     </div>
 
-    <!-- Conteúdo 2 -->
-    <div id="conteudo2" class="conteudo" style="display: none;">
-        <img src="https://imgs.search.brave.com/oXHilmHYtJ2EFldceWTKTqMIPPBeX5ZE7ugritRM0rc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3RpL2ZvdG9z/LWdyYXRpcy90Mi8x/Njc0OTA2OS1qb3Zl/bS1ib25pdG8tc29y/cmluZG8tY29tLW9z/LWJyYWNvcy1jcnV6/YWRvcy1uby1mdW5k/by1icmFuY28tZm90/by5qcGc" alt="Imagem 2">
-        <p>O objetivo do nosso projeto é ajudar as pessoas que tiveram perdas materiais devido as enchentes, procuramos ajudar elas com roupas e alimentos. Obrigado pela sua atenção</p>
+    <!-- Modal Suporte -->
+    <div id="modal-suporte" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-suporte">&times;</span>
+        <h2>Suporte</h2>
+        <p>Se precisar de ajuda, entre em contato conosco pelo nosso email de suporte: suporte@alunosdobem.com ou pelo número (11 99999-9999), iremos dar total suporte e atenção necessaria.</p>
+      </div>
     </div>
+  </div>
 
-    <!-- Conteúdo 3 -->
-    <div id="conteudo3" class="conteudo" style="display: none;">
-        <img src="https://imgs.search.brave.com/M4XvjZ-dKbMKZO3S9_DId8ipPkHsSu520nwMl2qwcus/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi8xLzEyL0Vu/dHJlZ2FfZGVfY2Vz/dGFzX2IlQzMlQTFz/aWNhc19kb19BbGlt/ZW50b19Tb2xpZCVD/MyVBMXJpby5fJTI4/NTA5OTk2NjI0NTkl/MjkuanBnLzY0MHB4/LUVudHJlZ2FfZGVf/Y2VzdGFzX2IlQzMl/QTFzaWNhc19kb19A/bGltZW50b19Tb2xp/ZCVDMyVBMXJpby5f/JTI4NTA5OTk2NjI0/NTklMjkuanBn" alt="Imagem 3">
-        <p>As doações que aceitamos são roupas e alimentos, caso queira doar contate ... ou então venha a escola joão de melo...</p>
-    </div>
+  <script>
+    // Modal - Doações
+    var modalDoacoes = document.getElementById("modal-doacoes");
+    var btnDoacoes = document.getElementById("btn-doacoes");
+    var spanDoacoes = document.getElementById("close-doacoes");
 
-    <!-- Botão Voltar -->
-    <button id="voltar" onclick="voltar()" style="display: none;">Voltar</button>
+    btnDoacoes.onclick = function() {
+      modalDoacoes.style.display = "block";
+    }
 
-    <script>
-        function mostrarConteudo(conteudoId) {
-            // Esconde todos os botões
-            const botoes = document.querySelectorAll('button');
-            botoes.forEach(botao => botao.style.display = 'none');
-            
-            // Exibe o conteúdo correspondente ao botão clicado
-            const conteudo = document.getElementById(conteudoId);
-            conteudo.style.display = 'block';
+    spanDoacoes.onclick = function() {
+      modalDoacoes.style.display = "none";
+    }
 
-            // Exibe o botão "Voltar" no canto superior
-            const voltarBtn = document.getElementById('voltar');
-            voltarBtn.style.display = 'block';
-        }
+    // Modal - Quem Somos
+    var modalQuemSomos = document.getElementById("modal-quem-somos");
+    var btnQuemSomos = document.getElementById("btn-quem-somos");
+    var spanQuemSomos = document.getElementById("close-quem-somos");
 
-        function voltar() {
-            // Esconde o conteúdo atual
-            const conteudos = document.querySelectorAll('.conteudo');
-            conteudos.forEach(conteudo => conteudo.style.display = 'none');
+    btnQuemSomos.onclick = function() {
+      modalQuemSomos.style.display = "block";
+    }
 
-            // Exibe os botões novamente
-            const botoes = document.querySelectorAll('button');
-            botoes.forEach(botao => botao.style.display = 'inline-block');
+    spanQuemSomos.onclick = function() {
+      modalQuemSomos.style.display = "none";
+    }
 
-            // Esconde o botão "Voltar"
-            const voltarBtn = document.getElementById('voltar');
-            voltarBtn.style.display = 'none';
-        }
-    </script>
+    // Modal - Objetivo
+    var modalObjetivo = document.getElementById("modal-objetivo");
+    var btnObjetivo = document.getElementById("btn-objetivo");
+    var spanObjetivo = document.getElementById("close-objetivo");
+
+    btnObjetivo.onclick = function() {
+      modalObjetivo.style.display = "block";
+    }
+
+    spanObjetivo.onclick = function() {
+      modalObjetivo.style.display = "none";
+    }
+
+    // Modal - Suporte
+    var modalSuporte = document.getElementById("modal-suporte");
+    var btnSuporte = document.getElementById("btn-suporte");
+    var spanSuporte = document.getElementById("close-suporte");
+
+    btnSuporte.onclick = function() {
+      modalSuporte.style.display = "block";
+    }
+
+    spanSuporte.onclick = function() {
+      modalSuporte.style.display = "none";
+    }
+
+    // Fechar o modal ao clicar fora da caixa
+    window.onclick = function(event) {
+      if (event.target == modalQuemSomos) {
+        modalQuemSomos.style.display = "none";
+      }
+      if (event.target == modalObjetivo) {
+        modalObjetivo.style.display = "none";
+      }
+      if (event.target == modalSuporte) {
+        modalSuporte.style.display = "none";
+      }
+      if (event.target == modalDoacoes) {
+        modalDoacoes.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
