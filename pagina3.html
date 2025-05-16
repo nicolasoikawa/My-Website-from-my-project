@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Doação de Alimentos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdf6f0;
+      padding: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .aviso {
+      background: #cfa26f;
+      color: #000000;
+      border: 1px solid #f1d682;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      background: #ff8c00;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #e07b00;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <h2>Formulário de Doação de Alimentos</h2>
+
+    <div class="aviso">
+      <strong>Atenção:</strong> Aceitamos apenas <strong>alimentos não perecíveis</strong>, como arroz, feijão, macarrão, enlatados, entre outros.
+    </div>
+
+    <label for="nome">Nome completo:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email">
+
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" name="telefone">
+
+    <label for="alimentos">Alimentos que deseja doar:</label>
+    <select id="alimentos" name="alimentos" multiple required>
+      <option value="arroz">Arroz</option>
+      <option value="feijao">Feijão</option>
+      <option value="macarrao">Macarrão</option>
+      <option value="enlatados">Enlatados</option>
+      <option value="oleo">Óleo</option>
+      <option value="outros">Outros não perecíveis</option>
+    </select>
+
+    <label for="mensagem">Mensagem adicional (opcional):</label>
+    <textarea id="mensagem" name="mensagem" rows="3"></textarea>
+
+    <button type="submit">Enviar Doação</button>
+  </form>
+</body>
+</html>
