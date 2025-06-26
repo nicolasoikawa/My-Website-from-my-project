@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Pagina estilo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Pagina principal</title>
+</head>
+
+<body>
+  <div class="slider">
+
+      <div class="slides">
+        <!--Botões do slide-->
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+        <!--FIM dos botões-->
+
+        <!--Imagens do slide-->
+        <div class="slide first">
+          <img src="/IMGS/LOIDE AUGUSTO.jpg" alt="Imagem 1" />
+          <button class="slide-btn">Doar</button>
+        </div>
+        <div class="slide">
+          <img src="/IMGS/LOIDE AUGUSTO.jpg" alt="Imagem 2" />
+          <button class="slide-btn">Quem somos</button>
+        </div>
+        <div class="slide">
+          <img src="/IMGS/LOIDE AUGUSTO.jpg" alt="Imagem 3" />
+          <button class="slide-btn">Endereço</button>
+        </div>
+        <div class="slide">
+          <img src="/IMGS/LOIDE AUGUSTO.jpg" alt="Imagem 4" />
+          <button class="slide-btn">Contato</button>
+           <button class="nav prev" onclick="mudarSlide(-1)">❮</button>
+           <button class="nav next" onclick="mudarSlide(1)">❯</button>
+        </div>
+        <!--FIM das imagens-->
+
+        <!--Navegação-->
+        <div class="navigation-auto">
+          <div class="auto-btn1"></div>
+          <div class="auto-btn2"></div>
+          <div class="auto-btn3"></div>
+          <div class="auto-btn4"></div>
+        </div>
+        
+      </div>
+      
+
+      <div class="manual-navigation">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+      </div>
+
+  </div>
+
+  <button class="botao-login" id="userbtn" title="Login/Perfil">
+   <a href="/login page/LOGIN.html">
+    <i class="fas fa-user"></i>
+         </button>
+    </a>
+
+  <button class="botao-menu">
+
+    <i class="fa-solid fa-bars-staggered"></i>
+  </button>
+  
+  <nav class="menu-lateral">
+    <ul>
+      <li>
+        <a href="Início.html">
+          <i class="fa-solid fa-house-user"></i>
+          Início
+        </a>
+      </li>
+      <li>
+        <a href="Quem somos.html">
+          <i class="fa-solid fa-users"></i>
+          Quem somos
+        </a>
+      </li>
+      <li>
+        <a href="Doações.html">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          Doações
+        </a>
+      </li>
+      <li>
+        <a href="Info.html">
+          <i class="fa-solid fa-circle-info"></i>
+          Info
+        </a>
+      </li>
+      <li>
+        <a href="Contato.html">
+          <i class="fa-solid fa-phone"></i>
+          Contato
+        </a>
+      </li>
+      <li>
+        <a href="Ponto de coleta.html">
+          <i class="fa-solid fa-location-dot"></i>
+          Ponto de coleta
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <div class="background"></div>
+
+  <main class="conteudo">
+    <h1>Somos alunos do jmm</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum error ipsam impedit neque alias eum porro
+      tempora, laborum dolor molestiae a, mollitia architecto inventore quam beatae et dolorem quos consequuntur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique expedita id culpa autem qui repellendus maiores laboriosam fugiat, facere aut cupiditate distinctio dignissimos obcaecati labore! Possimus omnis amet iste voluptatibus! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, eligendi magni non neque temporibus nam inventore? Possimus optio odio incidunt obcaecati aut illum ea, quae nam doloremque ex, recusandae reiciendis.</p>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+
+
+</html>
