@@ -11,19 +11,22 @@
     <main class="caixa">
         <form>
             <h1>Cadastro</h1>
-            </h1>
+    
             <div class="input-box">
                 <input placeholder="Nome Completo" type="text" required>
                 <i class="bx bxs-user"></i>
             </div>
+    
             <div class="input-box">
                 <input placeholder="E-mail" type="email" required>
                 <i class="bx bxs-envelope"></i>
             </div>
+    
             <div class="input-box">
                 <input placeholder="Telefone" type="tel" maxlength="15" id="telefone" required/>
                 <i class='bx bx-phone'></i> 
             </div>
+    
             <p>Gênero</p>
             <input type="radio" id="masculino" name="genero" value="masculino">
             <label for="masculino">Masculino</label>
@@ -31,14 +34,19 @@
             <label for="feminino">Feminino</label>
             <input type="radio" id="outro" name="genero" value="outro">
             <label for="outro">Outro</label>
+    
             <div class="input-box">
                 <label for="data-nascimento">Data de nascimento:</label>
-            <input type="date" id="data-nascimento" name="data-nascimento" min="1960-01-01" max="2007-12-31" required>
+                <input type="date" id="data-nascimento" name="data-nascimento" min="1960-01-01" max="2007-12-31" required>
+            </div>
+    
             <button type="submit" class="registrar">Registrar</button>
+    
             <div class="register-link">
                 <p>Já tem uma conta? <a href="LOGIN.html">Faça login</a></p>
-            
             </div>
+        </form>
+    </main>
 <script src="cadastroscript.js"></script>
 </body>
 </html>
